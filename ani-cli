@@ -415,9 +415,9 @@ play_episode() {
             ;;
         mpv*)
             if [ "$no_detach" = 0 ]; then
-                nohup $player_function $skip_flag --tls-verify=no --force-media-title="${allanime_title}Episode ${ep_no}" "$episode" $refr_flag >/dev/null 2>&1 &
+                nohup $player_function $skip_flag $subs_flag --tls-verify=no --force-media-title="${allanime_title}Episode ${ep_no}" "$episode" $refr_flag >/dev/null 2>&1 &
             else
-                $player_function $skip_flag $refr_flag --tls-verify=no --force-media-title="${allanime_title}Episode ${ep_no}" "$episode"
+                $player_function $skip_flag $subs_flag $refr_flag --force-media-title="${allanime_title}Episode ${ep_no}" "$episode" -wid "$(xwininfo -id "$(xdotool getactivewindow)" | awk '{if(/Window id:/) print $4}')"
                 mpv_exitcode=$?
                 [ "$exit_after_play" = 1 ] && [ -z "$range" ] && exit "$mpv_exitcode"
             fi
