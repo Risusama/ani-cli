@@ -78,6 +78,8 @@ help_info() {
         Use dmenu instead of fzf for the interactive menu
       --skip
         Use ani-skip to skip the intro of the episode (mpv only)
+      --tty-mode
+        Use TCT (True Color Terminal) renderer, which should be compatible with most TTY's.
       --no-detach
         Don't detach the player (useful for in-terminal playback, mpv only)
       --exit-after-play
